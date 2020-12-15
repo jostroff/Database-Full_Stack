@@ -1,0 +1,5 @@
+com\baeldung\application\repositories\UserRepository.class
+com\baeldung\application\controllers\UserController.class
+com\baeldung\application\Application.class
+com\baeldung\application\entities\User.class
+com\baeldung\application\RelationalDataAccessApplication.class

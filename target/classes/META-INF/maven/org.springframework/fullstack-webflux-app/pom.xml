@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.springframework</groupId>
+    <artifactId>fullstack-webflux-app</artifactId>
+    <version>0.1.0</version>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.4.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency> 
+		    <groupId>org.springframework.boot</groupId> 
+		    <artifactId>spring-boot-starter-web</artifactId> 
+		</dependency>
+		
+		<!-- logon/password denied, looked at exception. -->
+		<dependency>
+		        <groupId>javax.xml.bind</groupId>
+		        <artifactId>jaxb-api</artifactId>
+		        <version>2.3.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
+		<dependency>
+		    <groupId>javax.persistence</groupId>
+		    <artifactId>javax.persistence-api</artifactId>
+		    <version>2.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-jpa</artifactId>
+		    
+		    <!-- JDBC -->
+		    <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tomcat</groupId>
+                    <artifactId>tomcat-jdbc</artifactId>
+                </exclusion>
+            </exclusions>
+		</dependency>
+						
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.h2database</groupId>
+		    <artifactId>h2</artifactId>
+		    <scope>runtime</scope>
+		</dependency>
+		
+		
+		
+		<!-- JDBC -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc7</artifactId>
+			<version>12.1.0.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.tomcat</groupId>
+					<artifactId>tomcat-jdbc</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+	  		<groupId>org.hphc.utils</groupId>
+	  		<artifactId>common-utils</artifactId>
+	  		<version>1.5</version>
+	  		<exclusions>
+	  			<exclusion>
+	  				<groupId>org.slf4j</groupId>
+	  				<artifactId>slf4j-api</artifactId>
+	  			</exclusion>
+	  			<exclusion>
+	  				<groupId>org.slf4j</groupId>
+	  				<artifactId>slf4j-log4j12</artifactId>
+	  			</exclusion>
+	  			<exclusion>
+	  				<groupId>log4j</groupId>
+	  				<artifactId>log4j</artifactId>
+	  			</exclusion>
+	  			<exclusion>
+	  				<groupId>org.hphc.maven.deps</groupId>
+	  				<artifactId>spring-deps</artifactId>
+	  			</exclusion>
+	  		</exclusions>
+	  	</dependency>
+    </dependencies>
+
+    <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        
+        <!-- The main class to start -->
+        <!-- Received advice from: https://stackoverflow.com/questions/42840576/springboot-unable-to-find-a-single-main-class-from-the-following-candidates -->
+  		<start-class>application.Application</start-class>
+  		
+  		<!-- Can also add com.baeldung.ecommerce.EcommerceApplication. -->
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+			    <artifactId>maven-resources-plugin</artifactId>
+			    <version>3.1.0</version>
+			    <executions>
+			        <execution>
+			            <id>copy-resources</id>
+			            <phase>validate</phase>
+			            <goals>
+			                <goal>copy-resources</goal>
+			            </goals>
+			            <configuration>
+			                <resources>
+			                    <resource>
+			                        <directory>src/main/assets</directory>
+			                        <filtering>true</filtering>
+			                    </resource>
+			                </resources>
+			                <outputDirectory>${basedir}/target/classes/assets</outputDirectory>
+			            </configuration>
+			        </execution>
+			    </executions>
+			</plugin>
+        </plugins>
+    </build>
+    
+</project>
