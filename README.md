@@ -1,8 +1,3 @@
-## Spring Boot Angular
+## Spring Boot, MVC, Angular, and Database Connections with JPA Repositories
 
-This module contains articles about Spring Boot with Angular
-
-### Relevant Articles:
-
-- [Building a Web Application with Spring Boot and Angular](https://www.baeldung.com/spring-boot-angular-web)
-- [A Simple E-Commerce Implementation with Spring](https://www.baeldung.com/spring-angular-ecommerce)
+This repository contains the basic backend component for a fullstack web application, as well as its connection to a database, that I wrote for my job as a software developer. Note that the table contains columns for id, name, and email address, and the display for the separate angular application therefore adjusts accordingly based on that information.
